@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class TestDockerSelenium {
     public static ChromeOptions browserOptions;
     public static ThreadLocal<RemoteWebDriver> remoteDriver = new ThreadLocal<>();
-    public static String hubURL = "http://172.17.0.2:4444/";
+    public static String hubURL = "http://172.18.0.2:4444/";
 
     @BeforeTest
     public static void Setup() throws MalformedURLException{
