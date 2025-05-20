@@ -1,5 +1,8 @@
+# To use or not to use network_mode: bridge
+
 services:
   selenium-hub:
+    network_mode: bridge
     image: selenium/hub
     container_name: selenium-hub
     ports:
@@ -8,6 +11,7 @@ services:
       - "4444:4444"
   
   chrome:
+    network_mode: bridge
     image: selenium/node-chrome
     platform: linux/amd64
     shm_size: 2gb
@@ -19,6 +23,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
   edge:
+    network_mode: bridge
     image: selenium/node-edge
     platform: linux/amd64
     shm_size: 2gb
@@ -30,6 +35,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
   firefox:
+    network_mode: bridge
     image: selenium/node-firefox
     platform: linux/amd64
     shm_size: 2gb
