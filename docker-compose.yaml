@@ -1,17 +1,20 @@
-# To use or not to use network_mode: bridge
+# To execute this docker compose yml file use `docker compose -f docker-compose-v3.yml up`
+# Add the `-d` flag at the end for detached execution
+# To stop the execution, hit Ctrl+C, and then `docker compose -f docker-compose-v3.yml down`
 
+# To use use network_mode: bridge, SE_EVENT_BUS_HOST needs to be ip address.
+# Or need to get DNS working on Docker network named "bridge".
 services:
   selenium-hub:
-    network_mode: bridge
     image: selenium/hub
     container_name: selenium-hub
+    #hostname: selenium-hub # Need to make nodes connect to hub host name
     ports:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
-  
+    #network_mode: bridge
   chrome:
-    network_mode: bridge
     image: selenium/node-chrome
     platform: linux/amd64
     shm_size: 2gb
@@ -19,11 +22,8 @@ services:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-
+    #network_mode: bridge
   edge:
-    network_mode: bridge
     image: selenium/node-edge
     platform: linux/amd64
     shm_size: 2gb
@@ -31,17 +31,12 @@ services:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-
+    #network_mode: bridge
   firefox:
-    network_mode: bridge
     image: selenium/node-firefox
-    platform: linux/amd64
     shm_size: 2gb
     depends_on:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    #network_mode: bridge  
