@@ -1,24 +1,24 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 <suite name="Suite1" thread-count="3" parallel= "tests" verbose="1">
-  <test name="TestChrome">
+  <test name="RunWithChrome">
     <parameter name="browserName"  value="Chrome"/>
     <classes>
-       <class name="TestBrowsers"/>
+       <class name="GoogleHomePageTest"/>
     </classes>
   </test>
 
-  <test name="TestEdge">
+  <test name="RunWithEdge">
     <parameter name="browserName"  value="Edge"/>
     <classes>
-       <class name="TestBrowsers"/>
+       <class name="GoogleHomePageTest"/>
     </classes>
   </test>
 
-  <test name="TestFirefox">
+  <test name="RunWithFirefox">
     <parameter name="browserName"  value="Firefox"/>
     <classes>
-       <class name="TestBrowsers"/>
+       <class name="GoogleHomePageTest"/>
     </classes>
   </test>
 </suite>

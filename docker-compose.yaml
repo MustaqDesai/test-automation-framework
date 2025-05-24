@@ -39,4 +39,14 @@ services:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
-    #network_mode: bridge  
+    #network_mode: bridge
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    restart: unless-stopped
+    depends_on:
+      - selenium-hub
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./jenkins_data/jenkins_home:/var/jenkins_home"

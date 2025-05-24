@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class TestBrowsers {
+public class GoogleHomePageTest{
     WebDriver browserDriver;
 
     @BeforeTest
@@ -34,12 +34,13 @@ public class TestBrowsers {
     }
 
     @Test
-    public void BrowserTest() throws InterruptedException{
+    public void confirmPageTitle() throws InterruptedException{
         browserDriver.get("https://www.google.com");
         Thread.sleep(2000);
         String pageTitle = browserDriver.getTitle();
         Assert.assertEquals(pageTitle, "Google", "Found the page title.");
-        browserDriver.close();
+        browserDriver.quit();
+
 
     }
         

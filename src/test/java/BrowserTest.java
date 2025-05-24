@@ -12,7 +12,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestBrowser {
+public class BrowserTest {
     public static ChromeOptions browserOptions;
     public static ThreadLocal<RemoteWebDriver> remoteDriver = new ThreadLocal<>();
     public static String hubURL = "http://172.18.0.2:4444/";
@@ -43,7 +43,7 @@ public class TestBrowser {
         browserDriver.findElement(By.id("gbqfbb")).click(); //Feeling lucky!
         Thread.sleep(2000);
 
-        browserDriver.close();
+        browserDriver.quit();
                
     }
 
