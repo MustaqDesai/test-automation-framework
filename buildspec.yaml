@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Begin docker coponse phase... 
+      - docker verson
+      - docker compose verison
+      - docker-compose -f docker.compose.selenium-hub-with-nodes.yaml -d
+      - echo Completed docker compose phase.
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn test -DsuiteXmlFile=testng.xml          
+  post_build:
+    commands:
+      - echo Build completed on `date`
