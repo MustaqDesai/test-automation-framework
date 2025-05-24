@@ -12,7 +12,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestDockerSelenium {
+public class TestBrowser {
     public static ChromeOptions browserOptions;
     public static ThreadLocal<RemoteWebDriver> remoteDriver = new ThreadLocal<>();
     public static String hubURL = "http://172.18.0.2:4444/";
@@ -58,3 +58,4 @@ public class TestDockerSelenium {
     
 
 }
+
