@@ -5,7 +5,7 @@ phases:
       - echo Begin docker coponse phase... 
       - docker verson
       - docker compose verison
-      - docker-compose -f docker.compose.selenium-hub-with-nodes.yaml -d
+      - docker-compose -f docker.compose.yaml -d
       - echo Completed docker compose phase.
   build:
     commands:
